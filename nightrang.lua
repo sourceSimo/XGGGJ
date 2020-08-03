@@ -263,8 +263,6 @@ elseif database:sismember(bot_id..'Sudo:User', user_id) then
 var = database:get(bot_id.."Sudo:Rd"..msg.chat_id_) or 'المطور'  
 elseif database:sismember(bot_id..'Basic:Constructor'..chat_id, user_id) then
 var = database:get(bot_id.."BasicConstructor:Rd"..msg.chat_id_) or 'المنشئ اساسي'
-elseif database:sismember(bot_id..'Basic:Constructor'..chat_id, user_id) then
-var = database:get(bot_id.."BasicConstructor:Rd"..msg.chat_id_) or 'المنشئ اساسي'
 elseif database:sismember(bot_id..'Constructor'..chat_id, user_id) then
 var = database:get(bot_id.."Constructor:Rd"..msg.chat_id_) or 'المنشئ'  
 elseif database:sismember(bot_id..'Manager'..chat_id, user_id) then
@@ -282,7 +280,8 @@ var = database:get(bot_id.."Mote:Rd"..msg.chat_id_) or 'قـلبي'
 elseif database:sismember(bot_id..'Mottte:User'..chat_id, user_id) then  
 var = database:get(bot_id.."Mottte:Rd"..msg.chat_id_) or 'هطف'   
 elseif database:sismember(bot_id..'Motttte:User'..chat_id, user_id) then  
-var = database:get(bot_id.."Motttte:Rd"..msg.chat_id_) or 'غبي'  
+var = database:get(bot_id.."Motttte:Rd"..msg.chat_id_) or 'غبي' 
+else
 var = database:get(bot_id.."Memp:Rd"..msg.chat_id_) or 'العضو'
 end  
 return var
