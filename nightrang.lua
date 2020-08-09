@@ -5322,7 +5322,7 @@ end,nil)
 end
 return false
 end
-if text == ("الغاء حظر") and msg.reply_to_message_id_ and Mod(msg) then
+if text == ("الغاء الحظر") and msg.reply_to_message_id_ and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5349,8 +5349,8 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
  
-if text and text:match("^الغاء حظر @(.*)$") and Mod(msg) then
-local username = text:match("^الغاء حظر @(.*)$") 
+if text and text:match("^الغاء الحظر @(.*)$") and Mod(msg) then
+local username = text:match("^الغاء الحظر @(.*)$") 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5879,8 +5879,8 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 ------------------------------------------------------------------------
-if text and text:match("^فك تقييد @(.*)$") and Mod(msg) then
-local username = text:match("^فك تقييد @(.*)$")
+if text and text:match("^فك التقييد @(.*)$") and Mod(msg) then
+local username = text:match("^فك التقييد @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6706,11 +6706,11 @@ return false
 end
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,'⌔︙Link \n ['..link..']')                          
+send(msg.chat_id_,msg.id_,'['..ta.title_..']('..link..')')                          
 else                
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
-linkgp = '⌔︙Link \n ['..linkgpp.result..']'
+linkgp = '['..ta.title_..']('..linkgpp.result..')''
 else
 linkgp = '⌔︙ لا يوجد رابط ارسل ضع رابط'
 end  
