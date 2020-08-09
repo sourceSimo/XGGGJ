@@ -6704,18 +6704,20 @@ if not status_Link then
 send(msg.chat_id_, msg.id_,"⌔︙ الرابط معطل") 
 return false  
 end
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,'['..ta.title_..']('..link..')')                          
+send(msg.chat_id_,msg.id_,' ['..ta.title_..']('..link..')')                          
 else                
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
-linkgp = '['..ta.title_..']('..linkgpp.result..')'
+linkgp = ' ['..ta.title_..']('..linkgpp.result..')'
 else
 linkgp = '⌔︙ لا يوجد رابط ارسل ضع رابط'
 end  
 send(msg.chat_id_, msg.id_,linkgp)              
 end            
+ end,nil)
 end
 if text == 'مسح الرابط' or text == 'حذف الرابط' then
 if Mod(msg) then     
